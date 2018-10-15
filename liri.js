@@ -21,6 +21,24 @@ for(let i = 4; i < process.argv.length; i++) {
     userInput +=  process.argv[i];
 }
 
+//executing the function depending on user commands
+function chooseCommand(command, userInput){
+
+    if(command  === "spotify-this-song"){
+        
+        if(userInput === undefined) {
+            userInput = "What's my age again";
+        }
+            spotifyCommand();
+    }
+    else if (command === "do-what-it-says"){
+            doWhatItSays();
+    }
+}
+
+
+
+//function to spotify-this-song command
 let spotifyCommand = function(song) {
     
     spotify.search({ type: 'track', query: userInput }, function(err, data) {
@@ -29,14 +47,14 @@ let spotifyCommand = function(song) {
           return console.log('Error occurred: ' + err);
         };
        
-        let info = data.tracks.items;
+        song = data.tracks.items;
     
-        for(let i =0; i < info.length; i++) {
+        for(let i =0; i < song.length; i++) {
             console.log("----------------------------------------------------");
-            console.log("Artist name: " + info[i].album.artists[i].name);   
-            console.log("Song name: " + info[i].name); 
-            console.log("Song Preview: " +info[i].external_urls.spotify);
-            console.log("Album name: " + info[i].album.name); 
+            console.log("Artist name: " + song[i].album.artists[i].name);   
+            console.log("Song name: " + song[i].name); 
+            console.log("Song Preview: " +song[i].external_urls.spotify);
+            console.log("Album name: " + song[i].album.name); 
             console.log("----------------------------------------------------");
         }
      
@@ -44,16 +62,26 @@ let spotifyCommand = function(song) {
 
 }
 
-function chooseCommand(command){
+let doWhatItSays = function(){
 
-    if(command  === "spotify-this-song"){
+    fs.readFile('random.txt', 'utf8', function(err, data){
+
+        if (err){ 
+			return console.log(err);
+        }
         
-        if(userInput === undefined) {
-            userInput = "What's my age again";
-        }
-            spotifyCommand();
-        }
+        let arr = data.split(',');
+        console.log(arr[0],arr[1]);
+        //spotifyCommand(arr[1]);
+        //chooseCommand(arr[0],arr[1]);
+    });
 }
 
-chooseCommand(command);
+
+
+
+
+
+//Executing the function
+chooseCommand(command, userInput);
 
