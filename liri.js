@@ -34,6 +34,9 @@ function chooseCommand(command, userInput){
     else if (command === "do-what-it-says"){
             doWhatItSays();
     }
+    else if (command === "concert-this"){
+        concertCommand();
+    }
 }
 
 
@@ -73,11 +76,47 @@ let doWhatItSays = function(){
         let arr = data.split(',');
         console.log(arr[0],arr[1]);
         //spotifyCommand(arr[1]);
-        //chooseCommand(arr[0],arr[1]);
-    });
+       // chooseCommand(arr[0],arr[1]);
+
+       spotify.search({ type: 'track', query: arr[1], limit: 1 }, function(err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        }
+        song = data.tracks.items;
+    
+        for(let i =0; i < song.length; i++) {
+            console.log("----------------------------------------------------");
+            console.log("Artist name: " + song[i].album.artists[i].name);   
+            console.log("Song name: " + song[i].name); 
+            console.log("Song Preview: " +song[i].external_urls.spotify);
+            console.log("Album name: " + song[i].album.name); 
+            console.log("----------------------------------------------------");
+        }
+        })
+    })
 }
 
+let concertCommand = function(){
+    request(`https://rest.bandsintown.com/artists/${userInput}/events?app_id=codingbootcamp`,
+    function(err,response,body){
+        if(err && response.statusCode === 200){
+            console.log(err);
+        }
 
+      
+    let concert = JSON.parse(body);
+
+
+       for(let i=0; i <body.length; i++){
+
+        console.log("----------------------------------------------------");  
+        console.log("Venue name: " + concert[i].venue.name);
+        console.log(`Location: ${concert[i].venue.city} ,${concert[i].venue.region}`);
+        console.log("----------------------------------------------------");
+       } 
+       
+    });
+}
 
 
 
