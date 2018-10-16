@@ -16,26 +16,26 @@ const spotify = new Spotify ({
 let command = process.argv[2];
 let userInput = process.argv[3];
 
+let movieName = '';
 
-for(let i = 4; i < process.argv.length; i++) {
-    userInput +=  process.argv[i];
+for(let i = 3; i < process.argv.length; i++) {
+    movieName +=  process.argv[i];
 }
 
 //executing the function depending on user commands
 function chooseCommand(command, userInput){
 
     if(command  === "spotify-this-song"){
-        
-        if(userInput === undefined) {
-            userInput = "What's my age again";
-        }
             spotifyCommand();
     }
     else if (command === "do-what-it-says"){
-            doWhatItSays();
+            doCommand();
     }
     else if (command === "concert-this"){
         concertCommand();
+    }
+    else if (command === "movie-this"){
+        movieCommand();
     }
 }
 
@@ -44,14 +44,20 @@ function chooseCommand(command, userInput){
 //function to spotify-this-song command
 let spotifyCommand = function(song) {
     
-    spotify.search({ type: 'track', query: userInput }, function(err, data) {
+    if(userInput === undefined) {
+        userInput = "What's my age again";
+    }
 
+    spotify.search({ type: 'track', query: userInput, limit: 1 }, function(err, data) {
+                 
+      
         if (err) {
           return console.log('Error occurred: ' + err);
         };
        
         song = data.tracks.items;
-    
+     
+        
         for(let i =0; i < song.length; i++) {
             console.log("----------------------------------------------------");
             console.log("Artist name: " + song[i].album.artists[i].name);   
@@ -65,7 +71,7 @@ let spotifyCommand = function(song) {
 
 }
 
-let doWhatItSays = function(){
+let doCommand = function(){
 
     fs.readFile('random.txt', 'utf8', function(err, data){
 
@@ -98,29 +104,47 @@ let doWhatItSays = function(){
 
 let concertCommand = function(){
     request(`https://rest.bandsintown.com/artists/${userInput}/events?app_id=codingbootcamp`,
-    function(err,response,body){
-        if(err && response.statusCode === 200){
-            console.log(err);
+    function(error ,response,body){
+
+        if (!error) {
+           
+
+            for(let i=0; i <body.length; i++){
+     
+            let concert = JSON.parse(body)[i].venue;
+
+             console.log("----------------------------------------------------");  
+             console.log("Venue name: " + concert.name);
+             console.log(`Location: ${concert.city}, ${concert.region}`);
+             console.log("----------------------------------------------------");
+            } 
         }
-
-      
-    let concert = JSON.parse(body);
-
-
-       for(let i=0; i <body.length; i++){
-
-        console.log("----------------------------------------------------");  
-        console.log("Venue name: " + concert[i].venue.name);
-        console.log(`Location: ${concert[i].venue.city} ,${concert[i].venue.region}`);
-        console.log("----------------------------------------------------");
-       } 
        
     });
 }
 
+let movieCommand = function(){
+    request(`http://www.omdbapi.com/?t=${movieName}&apikey=trilogy`,
+    function(error,response,body){
 
+        
+        if(userInput === undefined){
+            console.log("If you haven't watched 'Mr. Nobody', then you should: http://www.imdb.com/title/tt0485947/");
+            console.log("It's on Netflix!");
+        }
+        
+        if (!error && response.statusCode === 200) {
 
-
+            console.log("----------------------------------------------------");
+            console.log(`Movie name: ${JSON.parse(body).Title}`);
+            console.log(`Year: ${JSON.parse(body).Year}`);
+            console.log(`IMDB rating: ${JSON.parse(body).imdbRating}`);
+            console.log(`Country: ${JSON.parse(body).Country}`);
+            console.log(`Language: ${JSON.parse(body).Language}`);
+            console.log("----------------------------------------------------");
+            }
+    });
+}
 //Executing the function
 chooseCommand(command, userInput);
 
