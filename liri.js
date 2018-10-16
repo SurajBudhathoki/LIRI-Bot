@@ -17,9 +17,14 @@ let command = process.argv[2];
 let userInput = process.argv[3];
 
 let movieName = '';
+let artistname = '';
 
 for(let i = 3; i < process.argv.length; i++) {
     movieName +=  process.argv[i];
+}
+
+for(let i = 3; i < process.argv.length; i++) {
+    artistname +=  process.argv[i];
 }
 
 //executing the function depending on user commands
@@ -103,22 +108,23 @@ let doCommand = function(){
 }
 
 let concertCommand = function(){
-    request(`https://rest.bandsintown.com/artists/${userInput}/events?app_id=codingbootcamp`,
-    function(error ,response,body){
+    request(`https://rest.bandsintown.com/artists/${artistname}/events?app_id=codingbootcamp`,
+    function(error,response,body){
+        
+        if (!error && response.statusCode === 200) {
+  
+        console.log("-------------------Upcoming Events---------------------------\n");  
 
-        if (!error) {
-           
+        concert =  JSON.parse(body);
 
-            for(let i=0; i <body.length; i++){
-     
-            let concert = JSON.parse(body)[i].venue;
-
-             console.log("----------------------------------------------------");  
-             console.log("Venue name: " + concert.name);
-             console.log(`Location: ${concert.city}, ${concert.region}`);
-             console.log("----------------------------------------------------");
+            for(let i=0; i < concert.length; i++){
+    
+               
+            console.log(`Venue Name: ${concert[i].venue.name}`);
+         console.log(`Location: ${concert[i].venue.city}, ${concert[i].venue.region}`);
+           console.log("----------------------------------------------------");
             } 
-        }
+        } 
        
     });
 }
@@ -139,12 +145,16 @@ let movieCommand = function(){
             console.log(`Movie name: ${JSON.parse(body).Title}`);
             console.log(`Year: ${JSON.parse(body).Year}`);
             console.log(`IMDB rating: ${JSON.parse(body).imdbRating}`);
+            console.log(`Rotten Tomatoes rating: ${JSON.parse(body).Ratings[1].Value}`);
             console.log(`Country: ${JSON.parse(body).Country}`);
             console.log(`Language: ${JSON.parse(body).Language}`);
+            console.log(`Plot: ${JSON.parse(body).Plot}`);
+            console.log(`Actors: ${JSON.parse(body).Actors}`);
             console.log("----------------------------------------------------");
             }
     });
 }
+
 //Executing the function
 chooseCommand(command, userInput);
 
