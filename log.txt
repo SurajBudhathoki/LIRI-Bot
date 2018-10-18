@@ -1,4 +1,22 @@
 
+Artist name: Backstreet Boys,
+ Song name: I Want It That Way,
+ Song preview: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6,
+ Album name: The Hits--Chapter One
+------------------------------------------------------------------------
+
+Artist name: blink-182,
+ Song name: What's My Age Again?,
+ Song preview: https://open.spotify.com/track/5JZcX7TTLx4l0xFIXJ3DBt,
+ Album name: Enema Of The State
+------------------------------------------------------------------------
+
+Artist name: Green Day,
+ Song name: American Idiot,
+ Song preview: https://open.spotify.com/track/6nTiIhLmQ3FWhvrGafw2zj,
+ Album name: American Idiot
+------------------------------------------------------------------------
+
 Movie name: Avatar 
 Year: 2009 
 IMDB rating: 7.8 
@@ -9,19 +27,6 @@ Plot: A paraplegic marine dispatched to the moon Pandora on a unique mission bec
 Actors: Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang
 ------------------------------------------------------------------------
 
-Movie name: Gangs of New York 
-Year: 2002 
-IMDB rating: 7.5 
-Rotten Tomatoes rating: 74% 
-Country: USA, Italy 
-Language: English, Irish, Chinese, Latin 
-Plot: In 1863, Amsterdam Vallon returns to the Five Points area of New York City seeking revenge against Bill the Butcher, his father's killer.
-Actors: Leonardo DiCaprio, Daniel Day-Lewis, Cameron Diaz, Jim Broadbent
-------------------------------------------------------------------------
-
-Venue Name: BAR
- Location: Rotterdam 
-------------------------------------------------------------------------
 Venue Name: POSTY FEST
  Location: Dallas TX
 ------------------------------------------------------------------------
@@ -30,6 +35,15 @@ Venue Name: Camp Flog Gnaw Carnival
 ------------------------------------------------------------------------
 Venue Name: Banc of California Stadium
  Location: Los Angeles CA
+------------------------------------------------------------------------
+Venue Name: Barclays Center
+ Location: Brooklyn NY
+------------------------------------------------------------------------
+Venue Name: Barclays Center
+ Location: Brooklyn NY
+------------------------------------------------------------------------
+Venue Name: 3Arena
+ Location: Dublin 
 ------------------------------------------------------------------------
 Venue Name: Genting Arena
  Location: Birmingham 
@@ -46,8 +60,8 @@ Venue Name: Accorhotels Arena
 Venue Name: Ziggo Dome
  Location: Amsterdam 
 ------------------------------------------------------------------------
-Venue Name: Barclays Center
- Location: Brooklyn NY
+Venue Name: Ziggo Dome
+ Location: Amsterdam 
 ------------------------------------------------------------------------
 Venue Name: Barclaycard Arena
  Location: Hamburg 
@@ -58,14 +72,11 @@ Venue Name: Globen
 Venue Name: Royal Arena
  Location: København 
 ------------------------------------------------------------------------
-Venue Name: Ziggo Dome
- Location: Amsterdam 
-------------------------------------------------------------------------
-Venue Name: Barclays Center
- Location: Brooklyn NY
-------------------------------------------------------------------------
 Venue Name: Mercedes-Benz Arena
  Location: Berlin 
+------------------------------------------------------------------------
+Venue Name: Olympiahalle
+ Location: München 
 ------------------------------------------------------------------------
 Venue Name: Hallenstadion
  Location: Zürich 
@@ -76,98 +87,9 @@ Venue Name: Koenig Pilsner Area
 Venue Name: Sportpaleis Antwerpen
  Location: Antwerpen 
 ------------------------------------------------------------------------
-Venue Name: 3Arena
- Location: Dublin 
-------------------------------------------------------------------------
-Venue Name: The O2
- Location: London 
-------------------------------------------------------------------------
 Venue Name: The O2 Arena
  Location: London 
 ------------------------------------------------------------------------
-Venue Name: Olympiahalle
- Location: München 
-------------------------------------------------------------------------
-Venue Name: The Forum
- Location: Los Angeles CA
-------------------------------------------------------------------------
-Venue Name: The Forum
- Location: Los Angeles CA
-------------------------------------------------------------------------
-Venue Name: The Forum
- Location: Los Angeles CA
-------------------------------------------------------------------------
-Venue Name: Oracle Arena
- Location: Oakland CA
-------------------------------------------------------------------------
-Venue Name: Tacoma Dome
- Location: Tacoma WA
-------------------------------------------------------------------------
-Venue Name: Oracle Arena
- Location: Oakland CA
-------------------------------------------------------------------------
-Venue Name: USS Hornet Aircraft Carrier
- Location: Alameda CA
-------------------------------------------------------------------------
-Venue Name: Rogers Arena
- Location: Vancouver 
-------------------------------------------------------------------------
-Venue Name: Rogers Place
- Location: Edmonton 
-------------------------------------------------------------------------
-Venue Name: Rogers Place
- Location: Edmonton 
-------------------------------------------------------------------------
-Venue Name: Enterprise Center
- Location: Saint Louis MO
-------------------------------------------------------------------------
-Venue Name: AmericanAirlines Arena
- Location: Miami FL
-------------------------------------------------------------------------
-Venue Name: AmericanAirlines Arena
- Location: Miami FL
-------------------------------------------------------------------------
-Venue Name: State Farm Arena
- Location: Atlanta GA
-------------------------------------------------------------------------
-Venue Name: State Farm Arena
- Location: Atlanta GA
-------------------------------------------------------------------------
-Venue Name: Chateau Le Jardin Event Venue
- Location: Woodbridge 
-------------------------------------------------------------------------
-Venue Name: Accorhotels Arena
- Location: Paris 
-------------------------------------------------------------------------
-Venue Name: Accorhotels Arena
- Location: Paris 
-------------------------------------------------------------------------
-Venue Name: Oracle Arena
- Location: Oakland CA
-------------------------------------------------------------------------
-Venue Name: Rogers Arena
- Location: Vancouver 
-------------------------------------------------------------------------
-Artist name: Backstreet Boys,
- Song name: I Want It That Way,
- Song preview: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6,
- Album name: The Hits--Chapter One
-------------------------------------------------------------------------
-
-Artist name: blink-182,
- Song name: What's My Age Again?,
- Song preview: https://open.spotify.com/track/5JZcX7TTLx4l0xFIXJ3DBt,
- Album name: Enema Of The State
-------------------------------------------------------------------------
-
-Artist name: Zedd,
- Song name: The Middle,
- Song preview: https://open.spotify.com/track/09IStsImFySgyp0pIQdqAc,
- Album name: The Middle
-------------------------------------------------------------------------
-
-Artist name: DJ Snake,
- Song name: A Different Way (with Lauv),
- Song preview: https://open.spotify.com/track/1YMBg7rOjxzbya0fPOYfNX,
- Album name: A Different Way (with Lauv)
+Venue Name: The O2
+ Location: London 
 ------------------------------------------------------------------------

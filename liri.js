@@ -51,12 +51,12 @@ let spotifyCommand = function () {
 
 
             for (let i = 0; i < song.length; i++) {
-                console.log("------------------------------------------------------------------------");
+                console.log("-------------------------------------Song Information-----------------------------------\n");
                 console.log("Artist name: " + song[i].album.artists[i].name);
                 console.log("Song name: " + song[i].name);
                 console.log("Song Preview: " + song[i].external_urls.spotify);
                 console.log("Album name: " + song[i].album.name);
-                console.log("------------------------------------------------------------------------\n");
+                console.log("-----------------------------------------------------------------------------------------\n");
 
                 //logging info to the log.txt file
                 fs.appendFile('log.txt', `\nArtist name: ${song[i].album.artists[i].name},\n Song name: ${song[i].name},\n Song preview: ${song[i].external_urls.spotify},\n Album name: ${song[i].album.name}\n------------------------------------------------------------------------\n`, (error) => {
@@ -115,7 +115,7 @@ let movieCommand = function () {
 
                 body = JSON.parse(body);
 
-                console.log("------------------------------------------------------------------------------------------------------");
+                console.log("--------------------------------------Movie Information-----------------------------------------------\n");
                 console.log(`Movie name: ${body.Title}`);
                 console.log(`Year: ${body.Year}`);
                 console.log(`IMDB rating: ${body.imdbRating}`);
@@ -154,12 +154,11 @@ let doCommand = function () {
             song = data.tracks.items;
 
             for (let i = 0; i < song.length; i++) {
-                console.log("----------------------------------------------------");
-                console.log("Artist name: " + song[i].album.artists[i].name);
+                console.log("-------------------------------------Song Information-----------------------------------\n"); console.log("Artist name: " + song[i].album.artists[i].name);
                 console.log("Song name: " + song[i].name);
                 console.log("Song Preview: " + song[i].external_urls.spotify);
                 console.log("Album name: " + song[i].album.name);
-                console.log("----------------------------------------------------");
+                console.log("-----------------------------------------------------------------------------------------\n");
 
                 //logging info to the log.txt file
                 fs.appendFile('log.txt', `\nArtist name: ${song[i].album.artists[i].name},\n Song name: ${song[i].name},\n Song preview: ${song[i].external_urls.spotify},\n Album name: ${song[i].album.name}\n------------------------------------------------------------------------\n`, (error) => {
