@@ -52,12 +52,10 @@ let spotifyCommand = function() {
         userInput = "What's my age again";
     }
 
-    spotify.search({ type: 'track', query: `${userInput}`, limit: 1 }, function(err, data) {
+    spotify.search({ type: 'track', query: `${userInput}`, limit: 1 }, function(error, data) {
                  
       
-        if (err) {
-          return console.log('Error occurred: ' + err);
-        };
+        if (!error){
        
         song = data.tracks.items;
      
@@ -69,8 +67,16 @@ let spotifyCommand = function() {
             console.log("Song Preview: " +song[i].external_urls.spotify);
             console.log("Album name: " + song[i].album.name); 
             console.log("----------------------------------------------------");
+
+            //logging info to the log.txt file
+            fs.appendFile('log.txt', `-----Artist name: ${song[i].album.artists[i].name}, Song name: ${song[i].name}, Song preview: ${song[i].external_urls.spotify}, Album name: ${song[i].album.name}-----`, (error) => {
+                if(error) throw error;
+            });
         }
      
+       
+
+    }
       })
 
 }
@@ -93,6 +99,11 @@ let concertCommand = function(){
             console.log(`Venue Name: ${concert[i].venue.name}`);
          console.log(`Location: ${concert[i].venue.city}, ${concert[i].venue.region}`);
            console.log("----------------------------------------------------");
+
+           //logging info to the log.txt file
+           fs.appendFile('log.txt', `-----Venue Name: ${concert[i].venue.name}, ` + `Location: ${concert[i].venue.city}, ${concert[i].venue.region}`, (error) => {
+               if(error) throw error;
+           })
             } 
         } 
        
@@ -112,16 +123,22 @@ let movieCommand = function(){
         
         else if (!error && response.statusCode === 200) {
 
+         body =  JSON.parse(body);  
             console.log("----------------------------------------------------");
-            console.log(`Movie name: ${JSON.parse(body).Title}`);
-            console.log(`Year: ${JSON.parse(body).Year}`);
-            console.log(`IMDB rating: ${JSON.parse(body).imdbRating}`);
-            console.log(`Rotten Tomatoes rating: ${JSON.parse(body).Ratings[1].Value}`);
-            console.log(`Country: ${JSON.parse(body).Country}`);
-            console.log(`Language: ${JSON.parse(body).Language}`);
-            console.log(`Plot: ${JSON.parse(body).Plot}`);
-            console.log(`Actors: ${JSON.parse(body).Actors}`);
+            console.log(`Movie name: ${body.Title}`);
+            console.log(`Year: ${body.Year}`);
+            console.log(`IMDB rating: ${body.imdbRating}`);
+            console.log(`Rotten Tomatoes rating: ${body.Ratings[1].Value}`);
+            console.log(`Country: ${body.Country}`);
+            console.log(`Language: ${body.Language}`);
+            console.log(`Plot: ${body.Plot}`);
+            console.log(`Actors: ${body.Actors}`);
             console.log("----------------------------------------------------");
+
+            //logging info to the log.txt file
+            fs.appendFile('log.txt', `-----Movie name: ${body.Title}, Year: ${body.Year}, Year: ${body.Year}, IMDB rating: ${body.imdbRating}, Rotten Tomatoes rating: ${body.Ratings[1].Value}, Country: ${body.Country}, Language: ${body.Language}, Plot: ${body.Plot}, Actors: ${body.Actors}-----`, (error) => {
+                if(error) throw error;
+            })
             }
     });
 }
@@ -129,17 +146,17 @@ let movieCommand = function(){
 //function for do-what-it-says command
 let doCommand = function(){
 
-    fs.readFile('random.txt', 'utf8', function(err, data){
+    fs.readFile('random.txt', 'utf8', function(error, data){
 
-        if (err){ 
-			return console.log(err);
+        if (error){ 
+			return console.log(error);
         }
         
         let arr = data.split(',');
 
-       spotify.search({ type: 'track', query: arr[1], limit: 1 }, function(err, data) {
-        if (err) {
-            return console.log('Error occurred: ' + err);
+       spotify.search({ type: 'track', query: arr[1], limit: 1 }, function(error, data) {
+        if (error) {
+            return console.log('Error occurred: ' + error);
         }
         song = data.tracks.items;
     
