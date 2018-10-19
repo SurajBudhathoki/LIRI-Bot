@@ -18,6 +18,8 @@ This will search the Bands in Town Artist Events API for an artist and render th
 * Name of the venue
 * Venue location
 
+![](/gifs/concertthis.gif)
+
 2. `node liri spotify-this-song '<song name here>'`
 
 This will show the following information about the song in your terminal/bash window
@@ -27,7 +29,7 @@ This will show the following information about the song in your terminal/bash wi
 * A preview link of the song from Spotify
 * The album that the song is from
 
-If no song is provided then your program will default to "What's My Age Again" by blink-182.
+![](/gifs/spotifythissong.gif)
 
 3. `node liri movie-this '<movie name here>'`
 
@@ -42,11 +44,13 @@ This will output the following information to your terminal/bash window:
 * Plot of the movie.
 * Actors in the movie.
 
-If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
-If you haven't watched "Mr. Nobody," then you should: http://www.imdb.com/title/tt0485947/
-It's on Netflix!
+![](/gifs/moviethis.gif)
 
 4. `node liri do-what-it-says`
 
-Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
-It should run spotify-this-song for "I Want it That Way," as follows the text in random.txt.
+Using the fs Node package, LIRI will take the text inside of `random.txt` and then use it to call one of LIRI's commands.
+It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
+
+![](/gifs/dowhatitsays.gif)
+
+In addition to logging the data to your terminal/bash window, output the data to a .txt file called `log.txt`.
